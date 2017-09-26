@@ -1,0 +1,68 @@
+﻿@model TRUX.Models.Truck
+
+@{
+    ViewBag.Title = "EnterRFID";
+        Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>EnterRFID</h2>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        button:hover {
+            color: #02bdd6;
+        }
+
+        [data-container="button"] {
+            position: absolute;
+            top: 50%;
+            text-align: center;
+            width: 50%;
+            margin-top: 50px; 
+            margin-left: 100px;
+            margin-right: 100px;
+        }
+
+    </style>
+</head>
+<body>
+        <div id="map">
+        </div>
+        <div class="map-modal"> <!--Modal for placing info inside-->
+            <div class="center-icon">
+                <img class="trux-icon-Rfid" src="~/Content/images/trux-icon.png">
+            </div>
+            <p class="rfid-label">RFID</p><br>
+            <input placeholder="Enter Your RFID" class="rfid-input"></><br>
+            <div data-element="card">
+                <div data-container="button"><button type="submit" class="btn btn-default" name="enterRfidButton" id="enterRfidButton">Enter</button></div>
+            </div>
+        </div>   
+    <script>
+        function initMap() {
+            var uluru = { lat: 34.0188291, lng: -118.2879678 };
+            var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 15,
+                center: uluru,
+                mapTypeId: 'satellite'
+                //style: "line-height: 70px; text-align: center;"
+            });
+            var marker = new google.maps.Marker({
+                position: uluru,
+                map: map,
+                mapTypeId: 'satellite'
+            });
+        }
+
+        //$('#myModal').on('shown', function () {
+        //    google.maps.event.trigger(map, "resize");
+        //});
+    </script>
+    <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAMKnqVmj4n1byhAK9bxMlGBfAUSjRIGSA&callback=initMap">
+    </script>
+
+</body>
+</html>

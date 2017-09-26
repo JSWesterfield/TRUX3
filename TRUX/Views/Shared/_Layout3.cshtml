@@ -1,0 +1,49 @@
+﻿
+@{
+    ViewBag.Title = "Layout3";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="icon" href="~/Content/images/trux-icon.png">
+    <link href="https://fonts.googleapis.com/css?family=Encode+Sans:300" rel="stylesheet">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TruX </title>
+
+    <!--Original styles-->
+    @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/sass")
+    @Styles.Render("~/Content/font")
+
+    <!--Added additional styles for new theme-->
+    @Styles.Render("~/Content/assets/css")
+    @Styles.Render("~/Content/assets/sass")
+    @Styles.Render("~/Content/assets/fonts")
+    @Scripts.Render("~/Scripts/angular.js")
+
+    <!--Scripts-->
+    @RenderSection("styles", required: false)
+    @Scripts.Render("~/bundles/modernizr")
+    @Styles.Render("~/Content/custom.css")
+    @Styles.Render("~/Content/images/trux-icon.png")
+</head>
+
+<body class="splash-body">
+        <div class="icon-and-title">
+            <p class="trux-icon-splash">
+                <img src="~/Content/images/trux-icon.png" width="300" height="300">
+            </p>
+            <div class="container body-content">
+                @RenderBody()
+            </div>
+            
+        </div>
+        <!--Bundling compresses several JS & stylessheets w/o formatting(minification), 
+        into a single file for saving bandwidth & number of requests to load a page-->
+        @Scripts.RenderFormat("<script type=\'text/javascript\' async src=\'{0}'></script>", "~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")
+        @RenderSection("scripts", required: false)
+</body>
+</html>

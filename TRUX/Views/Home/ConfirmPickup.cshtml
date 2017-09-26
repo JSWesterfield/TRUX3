@@ -1,0 +1,69 @@
+﻿
+@{
+    ViewBag.Title = "ConfirmPickup";
+}
+
+<h2>ConfirmPickup</h2>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        button {
+            color: white;
+            text-align: center;
+            background-color: #00e1ff;
+            box-shadow: 2.5px 2.5px 1.5px #888888;
+        }
+
+        button:hover {
+            color: blue;
+            background-color: #02bdd6;
+        }
+
+        #titleText {
+            color: white;
+            text-align: center;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="map">
+
+    </div>
+    <div id="map-modal">
+        <!--Modal for placing info inside-->
+        <img class="trux-icon-Rfid" src="~/Content/images/trux-icon.png">
+        <label>Cargo Pickup</label><br>
+    </div>
+
+    <p><button type="button" id="confirmPickupButton" class="btn btn-custom">Confirm</button></p>
+    <!--Add Emergency icon here, add from noun project-->
+    <!--<a src="source page for reaching MTI contact"><img class="emergency-icon" src="~/Content/images/emergency-icon"></a>-->
+    
+    <script>
+              function initMap() {
+                var uluru = {lat: 34.0188291, lng: -118.2879678};
+                var map = new google.maps.Map(document.getElementById('map'), {
+                    zoom: 15,
+                    center: uluru,
+                    mapTypeId: 'satellite'
+                    //style: "line-height: 70px; text-align: center;"
+                });
+                var marker = new google.maps.Marker({
+                    position: uluru,
+                    map: map,
+                    mapTypeId: 'satellite'
+                });
+              }
+
+              //$('#myModal').on('shown', function () {
+              //    google.maps.event.trigger(map, "resize");
+              //});
+    </script>
+    <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAMKnqVmj4n1byhAK9bxMlGBfAUSjRIGSA&callback=initMap">
+    </script>
+</body>
+</html>

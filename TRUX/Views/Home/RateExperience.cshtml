@@ -1,0 +1,99 @@
+﻿
+@{
+    ViewBag.Title = "RateExperience";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section styles{
+    <style type="text/css">
+        .ng-hide {
+            transition: 0.5s linear all;
+            opacity: 0;
+        }
+
+        .container.ng-hide {
+            transition: 0.5s linear all;
+            opacity: 0;
+        }
+
+        .col-md-8.ng-hide {
+            transition: 0.5s linear all;
+            opacity: 0;
+        }
+
+        .btn-custom {
+            color: white;
+            background-color: #00e1ff;
+        }
+
+        .btn-custom:hover {
+            color: #02bdd6;
+        }
+
+        .btn-danger:hover {
+            color: darkred;
+        }
+    </style>       
+}
+
+@*<h2>Rate Experience</h2>*@
+
+<div ng-controller="truckController as truckCtrl">
+
+    <div class="body-content">
+        <div class="row">
+            <h2>Truck</h2>
+        </div>
+        <div class="row">
+        {{truxCtrl.message}}
+            <div ng-show="truckCtrl.displayBodyContent" class="container ng-hide">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="panel panel-default">
+                            <strong>Your Emergency Notification was sent!!</strong>
+                        </div>
+                        <div class="panel panel-default">
+                            <strong>Contact</strong>
+                        </div>
+                        <div class="panel panel-default">
+                            <strong>{{truckCtrl.rateExperience}}</strong>
+                            <img src="~/Content/images/ratingStars">
+                        </div>
+                        <!--Resume Task button-->
+                        <div class="panel-body">
+                            <button type="button"
+                                    class="btn btn-custom"
+                                    ng-click="truckCtrl.resumeTask()">
+                            </button>
+                        </div>
+                        <!--Cancel Task Button-->
+                        <div class="panel-body">
+                            <button type="button"
+                                    class="btn btn-danger"
+                                    ng-click="truckCtrl.cancelTask()">
+                            </button>
+                        </div>
+                        <!--Used to display the content of the page, ng-show really isnt 
+                            necessary because we dont need to show or hide the page. So we should just display this page in a normal page
+                            maybe have the user experience interactive stars ng-show and ng-hide-->
+                        <div ng-show="truckCtrl.displayBodyContent" class="col-md-8 ng-hide">
+                            <div id="panel-1" class="panel panel-default">
+                                <div class="panel-heading">
+                                    <span class="panel-title">
+                                        <strong>Truck</strong>
+                                    </span>
+                                </div>
+                                <div class="panel-body">
+                                    <div class="">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Angular Controller-->

@@ -1,0 +1,121 @@
+﻿@{
+    ViewBag.Title = "Info";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        #map {
+            height: 600px;
+            width: 100%;
+        }
+
+        #hello {
+            text-align: center;
+            background-color: #00e1ff;   
+            border: none;
+            height: 90px;
+            color: white;
+            font-weight: lighter;
+        }
+
+        #pickup {
+            text-align: center;
+            border-bottom: 1px solid black;
+        }
+
+        #location {
+            text-align: center;
+            border-bottom: 1px solid black;
+        }
+
+        #eta {
+            text-align: center;
+            clear: left;
+            border-bottom: 1px solid black;
+        }
+
+        button {
+            color: white; 
+            text-align: center;
+            background-color: #00e1ff;
+            box-shadow: 2.5px 2.5px 1.5px #888888;
+        }
+
+        #titleText {
+            color: white;
+            text-align: center;
+        }
+
+        #map-modal {
+            color: #00e1ff;
+            width: 350px;
+            height: 300px;
+            margin: 0 auto;
+            background-color: #00e1ff;
+            box-shadow: 2.5px 2.5px 1.5px #888888;
+            border-radius: 4px;
+        }
+
+        input {
+            margin-left: 400px;
+        }
+
+        #center-info-input {
+            position: relative;
+        }
+
+        .display-input-inline {
+            display: inline;
+            color: red; /*Verification this is working, delete after verification*/
+        }
+    </style>
+</head>
+<body>
+    <div id="map">
+    </div>
+    <div id="center-info-input">
+        <div class="display-input-inline">
+            <p id="hello">Hello, Mike</p>
+        </div>
+        <div class="display-input-inline">
+            <p id="pickup">Pickup At: <input class="form-control" placeholder="1400"></></p>
+        </div>   
+        <div class="display-input-inline">
+            <p id="location">Pickup From: <input class="form-control" placeholder="34.0188291, -118.2879678"></></p>
+        </div>    
+        <div class="display-input-inline">
+            <p id="eta">Estimated Travel Time:<input class="form-control" placeholder="40 min"></></p>
+        </div>
+    </div>
+    <div>
+        <p><button type="button" id="TruxButton" class="btn btn-custom">Get Route</button></p>
+    </div>
+    <script>
+        function initMap() {
+            var uluru = { lat: 34.0188291, lng: -118.2879678 };
+            var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 15,
+                center: uluru,
+                mapTypeId: 'satellite'
+                //style: "line-height: 70px; text-align: center;"
+            });
+            var marker = new google.maps.Marker({
+                position: uluru,
+                map: map,
+                mapTypeId: 'satellite'
+            });
+        }
+
+        //$('#myModal').on('shown', function () {
+        //    google.maps.event.trigger(map, "resize");
+        //});
+    </script>
+    <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAMKnqVmj4n1byhAK9bxMlGBfAUSjRIGSA&callback=initMap">
+    </script>
+
+</body>
+
+</html>

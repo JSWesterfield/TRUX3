@@ -1,0 +1,27 @@
+﻿
+@{
+    ViewBag.Title = "SplashPage";
+    Layout = "~/Views/Shared/_Layout3.cshtml";
+}
+
+
+<body class="splash">
+
+    <h2 class="splash-title">TruX</h2>
+
+</body>
+
+<script>
+    $(document).ready(function () {
+        console.log('the browser is loaded!');
+        
+        $('.splash').on('click', function () {
+            console.log('The page was clicked!');
+        })
+
+        function enterPage() {
+            console.log('I entered the page');
+        }
+    });
+    
+</script>

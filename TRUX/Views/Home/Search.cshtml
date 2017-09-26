@@ -1,0 +1,110 @@
+﻿@{
+    ViewBag.Title = "Search";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <title>Simple markers for TruX</title>
+    <style>
+         /* Always set the map height explicitly to define the size of the div
+        * element that contains the map. */
+         #map {
+             height: 100%;
+         }
+         /* Optional: Makes the sample page fill the window. */
+         html, body {
+             height: 100%;
+             margin: 0;
+             padding: 0;
+         }
+
+         button {
+                color: white;
+                line-height: 70px; 
+                text-align: center;
+                background-color: #00e1ff;
+        }
+
+        #titleText {
+            color: white;
+            text-align: center;
+        }
+
+        #TruxButton {
+            line-height: 70px; 
+            text-align: center;
+        }   
+              
+</style>
+</head>
+<body>
+
+   <div id="map"></div>
+   
+    <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAMKnqVmj4n1byhAK9bxMlGBfAUSjRIGSA&callback=initMap">
+    </script>
+    <script async defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+   <script>
+	    var directionsService;
+	    var directionsDisplay;
+        function initMap() {
+            var myLatLng = {lat: -25.363, lng: 131.044};
+
+            var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 15,
+                center: myLatLng,
+                mapTypeId: 'satellite'
+            });
+
+            var pointA = new google.maps.LatLng(34.0188291, -118,2879678);
+            var pointB = new google.maps.LatLng(33.7380751, -118.2952658);
+
+	        var marker = new google.maps.Marker({
+                position: pointA,
+                map: map,
+                title: 'Hello TruX Location!'
+	        });
+
+	        var marker = new google.maps.Marker({
+                position: pointB,
+                map: map,
+                title: 'Hello TruX Desination!'
+	        });
+
+	        directionsService = new google.maps.DirectionsService();
+            directionsDisplay = new google.maps.DirectionsRenderer();
+
+            directionsDisplay.setMap(map);
+	        calcRoute(pointA,pointB);
+        }
+
+        function calcRoute(pointA,pointB) {
+        var start = pointA;
+        //var end = new google.maps.LatLng(38.334818, -181.884886);
+        var end = pointB;
+        var request = {
+            origin: start,
+            destination: end,
+            travelMode: google.maps.TravelMode.DRIVING
+        };
+        directionsService.route(request, function(response, status) {
+            if (status == google.maps.DirectionsStatus.OK) {
+            directionsDisplay.setDirections(response);
+            directionsDisplay.setMap(map);
+            } else {
+            alert("Directions Request from " + start.toUrlValue(6) + " to " + end.toUrlValue(6) + " failed: " + status);
+            }
+
+        });
+	    var totalTime = end - start;
+        console.log(totalTime);
+        }
+
+        google.maps.event.addDomListener(window, 'load', initialize);
+   </script>
+</body>
+</html>

@@ -1,0 +1,282 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 10px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 300px;
+}
+
+.navbar-inverse {
+    background-color: #00e1ff;
+    text-align: center;
+    border: none;
+    height: 70px;
+    color: white;
+}
+
+/*Nav bar icon, TruX*/
+a.navbar-brand {
+    color: white;
+    text-align: center;
+    margin: auto; /*Center the Enter button, within the modal*/
+    position: absolute;
+    right: 45%;
+    left: 45%;
+    text-align: center; 
+    font-size: 40px;
+    width: 30px;
+    letter-spacing: 4px;
+    font-weight: lighter;
+}
+
+/*IF no effect from commenting the below code, delete this below commented out to css selectors
+
+*/
+/*a {
+    color: red;
+}*/
+
+/*.navbar-text a {
+    text-align: center;
+    margin-left: 500px;
+    color: white;
+    border: 1px solid red;
+}*/
+
+form {
+    background-color: #00e1ff;
+    margin: auto;
+}
+
+.form-control {
+    margin: auto;
+}
+
+html,body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+}
+
+#map-canvas {
+      height: 100%;
+      width: 100%;
+}
+
+#map {
+    height: 100%;
+    width: 100%;
+}
+
+#myModal {
+    height: 600px;
+    width: 100%;
+    color: #00e1ff;
+}
+
+button {
+    color: #00e1ff;
+    text-align: center;
+    background-color: #00e1ff;
+    box-shadow: 2.5px 2.5px 1.5px #888888;
+    position: relative;
+    margin: 0 auto;
+    letter-spacing: 4px;
+}
+
+.btn-custom {
+    color: white;
+    text-align: center;
+    background-color: #00e1ff;
+    box-shadow: 2.5px 2.5px 1.5px #888888;
+    position: relative;
+    margin: 0 auto;
+}
+
+button:hover {
+    color: blue;  
+    background-color: #02bdd6; 
+    letter-spacing: 4px;
+}
+
+#titleText {
+    color: white;
+    text-align: center;
+    letter-spacing: 4px;
+}
+
+/*#TruxButton {
+    margin: auto;
+}*/  
+
+/* ======= Splash Page CSS ======= */
+.splash {
+    background-color: #00e1ff;  
+}
+
+.splash-title {
+    color: white; 
+    text-align: center;
+    margin: auto;
+    font-family: 'Encode Sans', sans-serif;
+    letter-spacing: 4px;
+}
+
+.splash-body {
+   background:  #00e1ff;
+   margin: auto;
+}
+
+.trux-icon-splash {
+    margin: 0 auto;
+    position: relative;
+}
+
+.trux-footer {
+    font-family: 'Encode Sans', sans-serif;
+    color: white;
+    position: absolute;
+}
+
+.icon-and-title {
+    position: relative;
+    margin: auto;
+    text-align: center;
+    top: calc(25% - 5px); /* 50% - 3/4 of icon height */ 
+    letter-spacing: 4px;
+}
+
+
+/* ======= Map Modal on Index Page ======= */
+.map-modal-index {
+    color: #00e1ff;
+    width: 400px;
+    height: 80px;
+    margin: auto;
+    background-color: #00e1ff;
+    box-shadow: 2.5px 2.5px 1.5px #888888;
+    border-radius: 4px;
+    font-size: 10px;  /*change font of 'START' button*/
+}
+
+
+/* ======= Map Modal on RFid Page ======= */
+.map-modal {
+    color: #00e1ff;
+    width: 350px;
+    height: 350px;
+    background-color: #00e1ff;
+    box-shadow: 2.5px 2.5px 1.5px #888888;
+    border-radius: 4px;
+    margin: auto; /*Center the Enter button, within the modal*/
+    position: absolute;
+    top: 25%;
+    right: 30%;
+    left: 30%;
+    text-align: center; 
+}
+
+.rfid-label {
+    color: white;
+    text-align: center;
+    font-size: 30px;
+    letter-spacing: 4px;
+    height: 10px;
+    padding: 10px;
+}
+
+.rfid-input {
+    text-align: center;
+    margin-top: 30px;
+}
+
+#enterRfidButton {  /*The 'Enter' RFID Button*/
+    color: white;
+    width: 100px;
+    /*Add a gradient to the button, light blue to navy blue*/
+    /*Add blue to navy blue left to right gradient*/
+    background: #0000FF; /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(left, #0000FF, #000080); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(right, #0000FF, #000080); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(right, #0000FF, #000080); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(to right, #0000FF, #000080); /* Standard syntax */
+    /* #0000FF == blue && #000080 == navy blue; */
+    border: none;
+    margin: auto;
+    margin-top: 40px;
+    letter-spacing: 4px;
+}
+
+
+/* ======= trux icon rfid page ======= */
+.trux-icon-Rfid {
+    margin: 0 auto;
+    position: relative;
+    width: 150px;
+    height: 130px;
+}
+
+.center-icon {
+    position: relative;
+    margin-top: 10px;
+}
+
+#map-wrapper {
+    position: relative;
+}
+
+.center-modal-input {
+    margin: auto;
+    position: relative;
+}
+
+/*#map-modal {
+    color: #00e1ff;
+    width: 350px;
+    height: 300px;
+    margin: 0 auto;
+    background-color: #00e1ff;
+    box-shadow: 2.5px 2.5px 1.5px #888888;
+    border-radius: 4px;
+}*/
+
+
+/* ======= TruX create page ======= */
+h3.subtitle {
+    color: white;
+}
+
+/* ======= TruX Corfirm Car page ======= */
+#confirmPickupButton {
+    color: white;
+    width: 100px;
+    /*Add a gradient to the button, light blue to navy blue*/
+    /*Add blue to navy blue left to right gradient*/
+    background: #0000FF; /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(left, #0000FF, #000080); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(right, #0000FF, #000080); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(right, #0000FF, #000080); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(to right, #0000FF, #000080); /* Standard syntax */
+    /* #0000FF == blue && #000080 == navy blue; */
+    border: none;
+    margin: auto;
+    margin-top: 40px;
+    letter-spacing: 4px;
+}

@@ -1,0 +1,66 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <style type="text/css" >
+            .ng-hide {
+                transition: 0.5s linear all;
+                opacity: 0;
+            }
+
+            .container.ng-hide {
+                transition: 0.5s linear all;
+                opacity: 0;
+            }
+
+            .col-md-8.ng-hide {
+                transition: 0.5s linear all;
+                opacity: 0;
+            }
+
+        </style>
+    </head>
+    <body>
+
+        <!--HAVE MODAL JUST SHOW START OVER MAP, place Javascript(onClick functionality) within this start this div-->
+        <div id="map">
+            <!--Added START button INSIDE map div, 8/22/17-->
+            <div class="map-modal-index">
+                <p class="splash-title">START </p>
+                <!--Modal for placing info inside-->
+            </div> 
+        </div> <!--Modal for placing info inside-->
+
+        <script>
+            function initMap() {
+                var uluru = {lat: 34.0188291, lng: -118.2879678};
+                var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 15,
+                center: uluru,
+                mapTypeId: 'satellite'
+                //style: "line-height: 70px; text-align: center;"
+            });
+            var marker = new google.maps.Marker({
+                position: uluru,
+                map: map
+            });
+            }
+
+            //$('#myModal').on('shown', function () {
+            //    google.maps.event.trigger(map, "resize");
+            //});
+        </script>
+        <script async defer
+                src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAMKnqVmj4n1byhAK9bxMlGBfAUSjRIGSA&callback=initMap">
+        </script>
+    </body>
+</html>
+
+
+
+<script>
+</script>

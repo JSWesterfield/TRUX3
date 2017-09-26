@@ -1,0 +1,250 @@
+﻿
+@{ 
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section {
+<style type="text/css">
+    .ng-hide {
+        transition: 0.5s linear all;
+        opacity: 0;
+    }
+
+    .container.ng-hide {
+        transition: 0.5s linear all;
+        opacity: 0;
+    }
+
+    .col-md-8.ng-hide {
+        transition: 0.5s linear all;
+        opacity: 0;
+    }
+    /*#imageSrc {
+        display: none;
+        width: 70px;
+    }
+
+    form {
+        padding-top: 50px; /*Maybe add 200 more px's to see if some space is given to the top portion*//*
+        margin: auto;
+        width: 50%;
+        box-shadow: 5px 5px 2.5px grey;
+        padding: 10px;
+        border-radius: 4px;
+    }
+
+    .form-container {
+        margin-top: 50px;
+    }   
+
+    input {
+        border-radius: 4px;
+    }*/
+</style>
+}
+
+<!--FORM #2-->
+<!-- COMMENTED OUT START
+<article class="article gradient-2">
+    <h2 class="title container text-center">TruX Request</h2>
+    <section>
+        <div class="section-inner container text-center">
+            <div class="content">
+                <div class="form-container col-md-10 col-sm-12 col-xs-12 col-md-push-1 col-sm-push-0 col-xs-push-0">
+                    <form id="TruxForm" class="TruxsForm form" method="post" action="#" novalidate="novalidate">
+                        <div class="contact-form-inner">
+                            <h3 class="subtitle">Trux Form</h3>
+                            <div class="row">
+                                <div class="col-md-12 col-sm-12 col-xs-12 form-group">
+                                    <label class="sr-only" for="rfid">RFID</label>
+                                    <input type="text" class="form-control" id="rfid" name="rfid" placeholder="Enter an RFID" required="" aria-required="true">
+                                </div>
+                                <div class="col-md-12 col-sm-12 col-xs-12 form-group">
+                                    <label class="sr-only" for="location">Location</label>
+                                    <input type="text" class="form-control" id="location" name="location" placeholder="Enter A Location" required="" aria-required="true">
+                                </div>
+                                <div class="col-md-12 col-sm-12 col-xs-12 form-group">
+                                    <label class="sr-only" for="destination">Destination</label>
+                                    <input type="text" class="form-control" id="destination" name="destination" placeholder="Enter A Destination" required="" aria-required="true">
+                                </div>
+                                <div class="col-md-12 col-sm-12 col-xs-12 form-group">
+                                    <label class="sr-only" for="startTime">Start Time</label>
+                                    <input type="datetime-local" data-provide="datepicker" data-date-format="mm/dd/yyyy" class="form-control" id="StartTime" name="StartTime" placeholder="Enter Start Time" required="" aria-required="true" />
+                                </div>
+                                <div class="col-md-12 col-sm-12 col-xs-12 form-group">
+                                    <label class="sr-only" for="endTime">End Time</label>
+                                    <input type="datetime-local" data-provide="datepicker" data-date-format="mm/dd/yyyy" class="form-control" id="StartTime" name="StartTime" placeholder="Enter Start Time" required="" aria-required="true" />
+                                </div>
+                                <div class="col-md-12 col-sm-12 col-xs-12 form-group">
+                                    <button type="submit" class="btn btn-default" name="createRequest" id="submitButton">Create Request</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="form-messages"></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+</article>     -->
+<div ng-controller="truckController as truckCtrl">
+
+    <div class="body-content">
+        <div class="row">
+            <h2>Truck</h2>
+        </div>
+
+        <div class="row">
+            {{truckCtrl.message}}
+            <div ng-show="truckCtrl.displayBodyContent" class="container ng-hide">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="panel panel-default">
+                            <strong>{{truckCtrl.heading}}</strong>
+                        </div>
+                        <div class="panel-body">
+                            <button type="button"
+                                    class="btn  btn-default"
+                                    ng-hide="truckCtrl.selectedItem"
+                                    ng-click="truckCtrl.createTrux()">
+                                Add Truck
+                            </button>
+                            <form id="createTruckForm" name="createTruckForm" ng-show="truckCtrl.selectedItem" class="ng-hide" novalidate>
+                                <fieldset>
+                                    <div class="row">
+                                        <div class="form-group"
+                                             ng-class="{'has-error: createTruckForm.'}">
+                                        </div>
+                                    </div>
+                                </fieldset>
+                            </form>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--END OF FORM #2-->
+
+<!--AngularJS form-->
+<article class="article gradient-2">
+    <h2 class="title container text-center">Welcome to TruX</h2>
+    <section class="form-section text-center">
+        <div class="section-inner container">
+            <div class="row">
+
+                <!-- Trux Form -->
+                <div class="form-container col-md-10 col-sm-12 col-xs-12 col-md-push-1 col-sm-push-0 col-xs-push-0" ng-controller="mainController as main">
+
+                    <form name="main.wishForm" novalidate>
+                        <div class="contact-form-inner">
+                            <h3 class="subtitle">Create a New Truck Request</h3>
+                            <div class="row">
+
+                                <!-- Truck UserId -->
+                                <div class="col-md-12 col-sm-12 col-xs-12 form-group" ng-class="{'has-error' : main.wishForm.userId.$invalid && main.wishForm.$submitted}">
+                                    <label class="sr-only" for="userId">User Id:</label>
+                                    <input required ng-model="main.userId" type="text" name="userId" class="form-control" placeholder="User Id" autofocus>
+                                    <p ng-show="main.TruckForm.userId.$error.required && main.TruckForm.$submitted" class="help-block">User Id is required</p>
+                                </div>
+
+                                <!-- SUBMIT BUTTON -->
+                                <div class="col-md-6 col-sm-6 col-xs-6 form-group">
+                                    <!--Submit button will only work when wishForm's validation is satisfied, or when all inputs that have required condition inside them is met, ng-disabled directive disables the submit button until wishForm is valid as an added precaution-->
+                                    <button ng-click="main.submitTruckForm(main.TruckForm.$valid)" type="submit" class="btn btn-block btn-cta btn-cta-primary">Submit Truck Request</button>
+                                </div>
+                            </div><!--//row-->
+                        </div>
+                    </form><!--//contact-form-->
+                </div><!--//form-container-->
+            </div><!--//row-->
+        </div><!--//section-inner-->
+    </section><!--//promo-section-->
+</article>
+
+<script src="~/Scripts/app/Trux.Services.Truck.js"></script>
+
+<!--Start of AngularJS script controller-->
+<script type="text/javascript">
+    (function () { b25uhj1y4`g`
+        "use strict";
+
+        angular.module(APPNAME)
+            .controller('mainController', MainController);
+
+        MainController.$inject = ['$scope', '$baseController', 'truxService', 'notificationsService'];
+
+        function MainController($scope, $baseController, truxService, notificationsService) {
+            
+            var vm = this;
+            
+            vm.notificationsService = notificationsService;
+            vm.$scope = $scope;
+            vm.truxService = truxService;
+            vm.createTruck = _createTruck;
+            vm.data = null;
+            vm.onCreateTruckSuccess = _onCreateTruckSuccess;
+            vm.onCreateTruckError = _onCreateTruckError;
+            vm.truckData = _truckData;
+
+
+            //FORM inputs
+            vm.userId = null;
+
+            $baseController.merge(vm, $baseController);
+
+            _render();
+
+            //1. RENDER FORM
+            function _render() {
+                //show page started up
+                vm.$log.log('Page started up');
+                //show the default upload prior to the user uploading
+                //$scope.$broadcast('fileUpload.urlLoad', { url: null, defaultPreviewUrl: defaultImagegUrl });
+
+                vm.$log.log(appConfig); //create appConfig
+
+                //in render add if check
+                if (appConfig.userId == null) {
+                    vm.$log.log('There is no appConfig value, send what URL page?');
+
+                    vm.userId = appConfig.item;
+                }
+
+                else {
+                    vm.$log.log('There is a value, we hit /admin/trux/{id}/edit, now what?');
+
+                    //get by id feature w/ success and error 
+                    vm.truxService.getById(vm.data, _onCreateTruckSuccess, _onCreateTruckError);
+                }
+            }
+
+            // 1a. SUBMIT TRUCK FORM - verifies that form is valid
+            function _submitTruckForm(isValid) {
+                if (isValid) {
+                    vm.createTruck();
+                }
+
+                else {
+                    vm.$log.log('invalid truck data');
+                }
+
+            }
+
+            // 2. READ FORM
+            //CREATE variable that contains the data from form(truckForm), CREATE vm.truckData
+            function readTruckForm() {
+                if (vm.truckForm.$valid) {
+                    if (vm.truckId == null) {
+                        vm.truckData = {
+                            Title: vm.
+                        }
+                    }
+                }
+            }
+        }
+    })
+
+</script>
